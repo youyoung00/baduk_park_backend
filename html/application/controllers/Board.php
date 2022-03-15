@@ -52,13 +52,7 @@ class Board extends CI_Controller {
 		$data['list'] = $result_list; 
         $data['search'] = $search;
 
-        
-
         $result_len = count($data['list']);
-        // var_dump($result_len);
-        // var_dump($data['list']);
-
-        // var_dump($data['list'][0]);
         
         for ($i = 0; $i < $result_len; $i++) {
             
@@ -68,29 +62,8 @@ class Board extends CI_Controller {
             $data['list'][$i]['comment_count'] = intval($data['list'][$i]['comment_count']);
             // $data['list'][$i]['comment_count'] = intval($data['list'][$i]['comment_count']);
         }
-        // for ($i = 0; $i < $result_len; $i++) {
-            
-        //     $data['list'][$i]['view_count'] = (int) $data['list'][$i]['view_count'];
-        // }
-        // for ($i = 0; $i < $result_len; $i++) {
-            
-        //     $data['list'][$i]['member_id'] = (int) $data['list'][$i]['member_id'];
-        // }
-        // for ($i = 0; $i < $result_len; $i++) {
-            
-        //     $data['list'][$i]['comment_count'] = (int) $data['list'][$i]['comment_count'];
-        // }
-
-        // var_dump($data['list'][0]);
 
         $this->load->view('board/list',$data); 
-
-        
-
-        // $val = $data['list'][0]['member_id'];
-        // echo gettype($val);
-
-        // exit();
         
         $this->output->set_content_type('text/json');
         $this->output->set_output(json_encode($data));
@@ -114,6 +87,36 @@ class Board extends CI_Controller {
 	}
 
 	public function update(){
+
+		
+		// $json2 = stripslashes($json);
+		// $json3 = json_decode($json2);
+		// $input_data = json_decode(trim(file_get_contents('php://input')), true);
+
+		// var_dump($input_data);
+		// $json = $request->getJSON('title');  
+		// $input_data = json_decode(trim(file_get_contents('php://input')), true);
+		// $json = $this->input->post('title');
+		// $post = json_decode($this->security->xss_clean($this->input->raw_input_stream));
+		// echo $post;
+		// echo $input_data;
+		// echo $json;
+		// echo "테스트 중입니다";
+
+		// exit();
+
+		
+		// $json = file_get_contents('php://input');
+		// $result = $this->input->post('_id', TRUE);
+
+		// var_dump($json);
+		// var_dump($this->input->post('title'));
+		// json_encode(array('_id' => 'jsonValue', 'jsonKey2' => 'jsonValue2'));
+
+		
+
+		// $myGreatAssocArray = json_decode($jsonStringData);
+
 		$id =  $this->input->get('id');
 
 		$result = $this->Board_model->view_select($id);
